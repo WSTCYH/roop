@@ -16,7 +16,7 @@ def get_face_analyser() -> Any:
     with THREAD_LOCK:
         if FACE_ANALYSER is None:
             FACE_ANALYSER = insightface.app.FaceAnalysis(name='buffalo_l', providers=roop.globals.execution_providers)
-            FACE_ANALYSER.prepare(ctx_id=0)
+            FACE_ANALYSER.prepare(ctx_id=0, det_thresh=0.2)
     return FACE_ANALYSER
 
 
